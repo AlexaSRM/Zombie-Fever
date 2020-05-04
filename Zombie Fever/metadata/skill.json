@@ -1,0 +1,38 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Learn fun facts about space.",
+          "examplePhrases": [
+            "Alexa open space facts",
+            "Alexa ask space facts for a fact",
+            "Alexa tell space facts to tell me trivia"
+          ],
+          "keywords": [
+            "space",
+            "facts",
+            "trivia"
+          ],
+          "name": "zombie-fever",
+          "description": "Ask for Space Facts, and learn about what really matters, like dark matter.\n\nSpace Facts provides fun the whole family can enjoy and is guaranteed to make you smarter.\n\nTo start, just say \"Alexa, launch Space Facts\" or \"Alexa, open Space Facts\" to get a fact\".\n\nAt anytime, you can stop by saying \"Alexa, stop\""
+        }
+      },
+      "category": "KNOWLEDGE_AND_TRIVIA"
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "ask-custom-zombie-fever-default"
+        },
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_APL"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

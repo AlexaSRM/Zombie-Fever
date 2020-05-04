@@ -1,0 +1,115 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "later",
+                        "not now"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "left"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "gun"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "knife"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "highway"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "car"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "zombie fever"
+        }
+    }
+}

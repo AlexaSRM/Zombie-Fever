@@ -1,0 +1,27 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.636b6966-1673-4774-a695-35d7122ce42a",
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "c705a6f70ee1e93dc9e5478a5bb70870"
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:985656135493:function:ask-custom-zombie-fever-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-zombie-fever-default",
+            "handler": "index.handler",
+            "revisionId": "57eee71a-16e8-4406-8508-f9408c8bb296",
+            "runtime": "nodejs10.x"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+@start
+  *say
+    Welcome. Do you want to play Zombie Fever?
+    *then
+    hear yes, yeah, sure{
+        ->intro
+    }
+    hear no, later, not now{
+        ->goodbye
+    }
+@intro
+    *say
+        The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. You also have a flashbang. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?
+        
+        *show
+            template : 'default'
+            background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/intro.jpg'
+        
+        *then
+            hear left{
+            set flashStatus as true
+            set playerHealth as 15
+             ->left
+             }
+            hear right{
+            set flashStatus as true
+            set playerHealth as 15
+             ->right
+             }
+    *reprompt
+        Do you want to go left or right?
+    *recap
+        Say left or right.
+        
+@left
+    *say
+        The alley is dark. No sound came from anywhere. You intentionally keep it quiet. After taking a few steps you see a zombie alone wandering. You don't want to grab its attention so you keep walking slowly but a twig snaps below your feet. The zombie turns towards you. You cannot run away from it. You have to fight it now.
+        
+    *show
+        template : 'default'
+        background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/alley.jpg'
+        
+    *then
+        set path as 'left'
+        set enemy as 'the zombie'
+        set enemyHealth as 5
+        set enemyDamage as 2
+        ->attack
+
+@right
+    *say
+        You start walking down the road that you came. On walking you come across a clearing where you see 3 zombies feeding of human bodies. You try to go past them silently but a twig breaks under you. They hear it and see you standing there. You hear another sound behind you. You cannot run back. You have to fight them!
+    *show
+        template : 'default'
+        background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/zombie-road.jpg'
+    
+    *then
+        set path as 'right'
+        set enemy as 'the group of zombies'
+        set enemyHealth as 10
+        set enemyDamage as 3
+        -> attack
+        
+@attack
+    *say
+        Do you chose your knife or gun?
+    *then
+        hear gun{
+            set weapon as 'gun'
+            set weaponDamage as 2
+            -> fight
+        }
+        hear knife{
+            set weapon as 'knife'
+            set weaponDamage as 3
+            -> fight
+        }
+        
+    *reprompt
+        Do you chose your gun or your knife?
+    *recap
+        Say gun or knife.
+
+@flashTrue
+    *say
+        You can also chose your flashbang, but remember you can only use it once. Which one do you chose?
+    *then
+        >>RETURN
+    
+@fight
+    *say
+        You draw out your {weapon} against {enemy} and try to attack it.
+    *then
+        <->fightResult
+        if attackResult{
+            decrease enemyHealth by weaponDamage
+            ->giveUpdate
+        }
+        if !attackResult{
+            decrease playerHealth by enemyDamage
+            ->giveUpdate
+        }
+        
+@fightResult
+    *then
+        roll 1d2
+        flag attackResult
+        if rollResult != 1{
+            unflag attackResult
+        }
+        >> RETURN
+
+@flashBang
+    *say
+        You have already used your flashbang. You cannot use it again. You have to chose your gun or knife.
+    *then
+        >> RETURN
+
+@giveUpdate
+    *say
+        Your health is {playerHealth} and the health of {enemy} is {enemyHealth}.
+    *then
+        if playerHealth > 0 and enemyHealth > 0{
+            ->attack
+        }
+        if playerHealth <= 0 {
+            ->loseFight
+        }
+        if enemyHealth <= 0 {
+            -> winFight
+        }
+        
+@loseFight
+    *say
+        You succumbed to your injuries. {enemy} defeated you.
+    *then
+        -> endGame
+@winFight
+    *say
+        Congratulations! You won against the {enemy} with your {weapon}.
+    *then
+        -> continue
+
+@continue
+    *say
+        On continuing on your path you come to a clearing, to your left is a highway leading out of     the city, at the end of which is the safe zone. You see a car, a little further from     you to your right. However you see a large horde of zombies in front of you. Do you     decide to run down the highway or fight the zombies and take the car? Do you decide     to go left or right?
+    *then
+        hear highway , left{
+            -> highway
+        }
+        hear car , right{
+            -> car
+        }
+    *reprompt
+        Do you go to your left or right?
+    *recap
+        Say left or right.
+@highway
+    *say
+        You start to run down the highway but the zombies still see you and start chasing you. Looking back you see that they have almost closed in on you. As you were seeing behind you, you do not see a small rock in front of you and you trip over it. The zombies have surrounded you meanwhile. You have no other choice but to fight them or die.
+    
+    *show
+        template : 'default'
+        background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/zombie-highway.jpg'
+    
+    *then
+        set enemy as 'the zombies'
+        set enemyHealth as 10
+        set enemyDamage as 5
+        -> HighwayAttack
+@car
+    *say
+        If you want the car you have to fight the zombies.
+        
+    *show
+        template : 'default'
+        background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/car.jpg'    
+        
+    *then
+        set enemy as 'the zombies'
+        set enemyHealth as 10
+        set enemyDamage as 5
+        -> HighwayAttack
+
+@HighwayAttack
+    *say
+        Do you chose your gun or your knife?
+    *then
+        hear gun{
+            set weapon as 'gun'
+            set weaponDamage as 2
+            -> fightHighway
+        }
+        hear knife{
+            set weapon as 'knife'
+            set weaponDamage as 3
+            -> fightHighway
+        }
+    *reprompt
+        Do you chose your gun or your knife?
+    *recap
+        Say gun or knife.
+
+@fightHighway
+    *say
+        You try to attack the zombies with your {weapon}.
+    *then
+        <-> fightResult
+        if attackResult {
+            decrease enemyHealth by weaponDamage
+            -> giveUpdateHighway
+        }
+        if !attackResult {
+            decrease playerHealth by enemyDamage
+            ->giveUpdateHighway
+        }
+
+@giveUpdateHighway
+    *say
+        Your health is {playerHealth} and the health of {enemy} is {enemyHealth}.
+    *then
+        if playerHealth > 0 and enemyHealth > 0{
+            -> HighwayAttack
+        }
+        if enemyHealth <= 0 {
+            -> winHighwayFight
+        }
+        if playerHealth <= 0 {
+            -> loseFight
+        }
+        
+@winHighwayFight
+    *say
+        Congratulations! You won the fight.
+        You then start walking towards the safe area when suddenly huge lights beam at you. On seeing you, multiple soldiers come running to save you.
+        
+    *show
+        template : 'default'
+        background : 'https://s3.amazonaws.com/com.alexa.zombie-fever/safe-area.jpg'
+        
+    *then
+     -> success
+
+@success
+    *say
+        Congratulations! You were able to survive and safely reached the safe zone.
+    *then
+        ->endGame
+
+@endGame
+    *say
+        Do you want to play again?
+    *then
+        hear yes{
+            -> intro
+        }
+        hear no{
+            -> goodbye
+        }
+
+@goodbye
+    *say
+        Thank you for playing Zombie Fever. Goodbye!
+    *then
+        >>END

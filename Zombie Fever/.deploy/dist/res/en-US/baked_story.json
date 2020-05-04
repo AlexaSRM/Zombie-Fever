@@ -1,0 +1,1209 @@
+{
+    "pluginName": "default",
+    "scenes": [
+        {
+            "contents": [
+                {
+                    "narration": "Welcome. Do you want to play Zombie Apocalypse?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes",
+                                    "yeah",
+                                    "sure"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "intro",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no",
+                                    "later",
+                                    "not now"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "goodbye",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent",
+                                    "flexaIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "start",
+            "customProperties": {
+                "sourceLocation": 0,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. You also have a flashbang. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Do you want to go left or right?"
+                            }
+                        },
+                        {
+                            "directionType": "recap",
+                            "parameters": {
+                                "message": "Say left or right."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "left"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "flashStatus",
+                                            "variableValue": "{true}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "playerHealth",
+                                            "variableValue": "15"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "left",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexbIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "right"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "flashStatus",
+                                            "variableValue": "{true}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "playerHealth",
+                                            "variableValue": "15"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "right",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "intro",
+            "customProperties": {
+                "sourceLocation": 187,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "The alley is dark. No sound came from anywhere. You intentionally keep it quiet. After taking a few steps you see a zombie alone wandering. You don't want to grab its attention so you keep walking slowly but a twig snaps below your feet. The zombie turns towards you. You cannot run away from it. You have to fight it now.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "path",
+                                "variableValue": "left"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemy",
+                                "variableValue": "the zombie"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyHealth",
+                                "variableValue": "5"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyDamage",
+                                "variableValue": "2"
+                            }
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "attack",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "left",
+            "customProperties": {
+                "sourceLocation": 1873,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You start walking down the road that you came. On walking you come across a clearing where you see 3 zombies feeding of human bodies. You try to go past them silently but a twig breaks under you. They hear it and see you standing there. You hear another sound behind you. You cannot run back. You have to fight them!",
+                    "sceneDirections": [
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "path",
+                                "variableValue": "right"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemy",
+                                "variableValue": "the group of zombies"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyHealth",
+                                "variableValue": "10"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyDamage",
+                                "variableValue": "3"
+                            }
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "attack",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "right",
+            "customProperties": {
+                "sourceLocation": 2376,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Do you chose your knife or gun?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Do you chose your gun or your knife?"
+                            }
+                        },
+                        {
+                            "directionType": "recap",
+                            "parameters": {
+                                "message": "Say gun or knife."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "gun"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weapon",
+                                            "variableValue": "gun"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weaponDamage",
+                                            "variableValue": "2"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "fight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexcIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "knife"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weapon",
+                                            "variableValue": "knife"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weaponDamage",
+                                            "variableValue": "3"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "fight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexdIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "attack",
+            "customProperties": {
+                "sourceLocation": 2895,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You can also chose your flashbang, but remember you can only use it once. Which one do you chose?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "return",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "flashTrue",
+            "customProperties": {
+                "sourceLocation": 3322,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You draw out your {weapon} against {enemy} and try to attack it.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "save and go",
+                            "parameters": {
+                                "target": "fightResult",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{attackResult}",
+                                "directions": [
+                                    {
+                                        "directionType": "reduce",
+                                        "parameters": {
+                                            "variableName": "enemyHealth",
+                                            "variableValue": "{weaponDamage}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "giveUpdate",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{attackResult}",
+                                "directions": [
+                                    {
+                                        "directionType": "reduce",
+                                        "parameters": {
+                                            "variableName": "playerHealth",
+                                            "variableValue": "{enemyDamage}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "giveUpdate",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "fight",
+            "customProperties": {
+                "sourceLocation": 3486,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "",
+                    "sceneDirections": [
+                        {
+                            "directionType": "roll dice",
+                            "parameters": {
+                                "diceString": "1d2"
+                            }
+                        },
+                        {
+                            "directionType": "flag",
+                            "parameters": {
+                                "variableName": "attackResult"
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{rollResult} != 1",
+                                "directions": [
+                                    {
+                                        "directionType": "unflag",
+                                        "parameters": {
+                                            "variableName": "attackResult"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "return",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "fightResult",
+            "customProperties": {
+                "sourceLocation": 3850,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You have already used your flashbang. You cannot use it again. You have to chose your gun or knife.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "return",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "flashBang",
+            "customProperties": {
+                "sourceLocation": 4014,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Your health is {playerHealth} and the health of {enemy} is {enemyHealth}.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{playerHealth} > 0 && {enemyHealth} > 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "attack",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{playerHealth} <= 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "loseFight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{enemyHealth} <= 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "winFight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "giveUpdate",
+            "customProperties": {
+                "sourceLocation": 4177,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You succumbed to your injuries. {enemy} defeated you.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "endGame",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "loseFight",
+            "customProperties": {
+                "sourceLocation": 4522,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Congratulations! You won against the {enemy} with your {weapon}.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "continue",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "winFight",
+            "customProperties": {
+                "sourceLocation": 4638,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "On continuing on your path you come to a clearing, to your left is a highway leading out of     the city, at the end of which is the safe zone. You see a car, a little further from     you to your right. However you see a large horde of zombies in front of you. Do you     decide to run down the highway or fight the zombies and take the car? Do you decide     to go left or right?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Do you go to your left or right?"
+                            }
+                        },
+                        {
+                            "directionType": "recap",
+                            "parameters": {
+                                "message": "Say left or right."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "highway",
+                                    "left"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "highway",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexeIntent",
+                                    "flexbIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "car",
+                                    "right"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "car",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexfIntent",
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "continue",
+            "customProperties": {
+                "sourceLocation": 4767,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You start to run down the highway but the zombies still see you and start chasing you. Looking back you see that they have almost closed in on you. As you were seeing behind you, you do not see a small rock in front of you and you trip over it. The zombies have surrounded you meanwhile. You have no other choice but to fight them or die.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemy",
+                                "variableValue": "the zombies"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyHealth",
+                                "variableValue": "10"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyDamage",
+                                "variableValue": "5"
+                            }
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "HighwayAttack",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "highway",
+            "customProperties": {
+                "sourceLocation": 5410,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "If you want the car you have to fight the zombies.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemy",
+                                "variableValue": "the zombies"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyHealth",
+                                "variableValue": "10"
+                            }
+                        },
+                        {
+                            "directionType": "set",
+                            "parameters": {
+                                "variableName": "enemyDamage",
+                                "variableValue": "5"
+                            }
+                        },
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "HighwayAttack",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "car",
+            "customProperties": {
+                "sourceLocation": 5912,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Do you chose your gun or your knife?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "reprompt",
+                            "parameters": {
+                                "message": "Do you chose your gun or your knife?"
+                            }
+                        },
+                        {
+                            "directionType": "recap",
+                            "parameters": {
+                                "message": "Say gun or knife."
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "gun"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weapon",
+                                            "variableValue": "gun"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weaponDamage",
+                                            "variableValue": "2"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "fightHighway",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexcIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "knife"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weapon",
+                                            "variableValue": "knife"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "set",
+                                        "parameters": {
+                                            "variableName": "weaponDamage",
+                                            "variableValue": "3"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "fightHighway",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "flexdIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "HighwayAttack",
+            "customProperties": {
+                "sourceLocation": 6124,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "You try to attack the zombies with your {weapon}.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "save and go",
+                            "parameters": {
+                                "target": "fightResult",
+                                "targetSceneProperty": "narration"
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{attackResult}",
+                                "directions": [
+                                    {
+                                        "directionType": "reduce",
+                                        "parameters": {
+                                            "variableName": "enemyHealth",
+                                            "variableValue": "{weaponDamage}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "giveUpdateHighway",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "!{attackResult}",
+                                "directions": [
+                                    {
+                                        "directionType": "reduce",
+                                        "parameters": {
+                                            "variableName": "playerHealth",
+                                            "variableValue": "{enemyDamage}"
+                                        }
+                                    },
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "giveUpdateHighway",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "fightHighway",
+            "customProperties": {
+                "sourceLocation": 6567,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Your health is {playerHealth} and the health of {enemy} is {enemyHealth}.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{playerHealth} > 0 && {enemyHealth} > 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "HighwayAttack",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{enemyHealth} <= 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "winHighwayFight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "condition",
+                            "parameters": {
+                                "condition": "{playerHealth} <= 0",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "loseFight",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "giveUpdateHighway",
+            "customProperties": {
+                "sourceLocation": 6933,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Congratulations! You won the fight. \n        You then start walking towards the safe area when suddenly huge lights beam at you. On seeing you, multiple soldiers come running to save you.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "success",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "winHighwayFight",
+            "customProperties": {
+                "sourceLocation": 7301,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Congratulations! You were able to survive and safely reached the safe zone.",
+                    "sceneDirections": [
+                        {
+                            "directionType": "go to",
+                            "parameters": {
+                                "target": "endGame",
+                                "targetSceneProperty": "narration"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "success",
+            "customProperties": {
+                "sourceLocation": 7556,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Do you want to play again?",
+                    "sceneDirections": [
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "yes"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "intro",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.YesIntent"
+                                ]
+                            }
+                        },
+                        {
+                            "directionType": "choice",
+                            "parameters": {
+                                "utterances": [
+                                    "no"
+                                ],
+                                "saveToHistory": "true",
+                                "directions": [
+                                    {
+                                        "directionType": "go to",
+                                        "parameters": {
+                                            "target": "goodbye",
+                                            "targetSceneProperty": "narration"
+                                        }
+                                    }
+                                ],
+                                "utteranceIDs": [
+                                    "AMAZON.NoIntent"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ],
+            "id": "endGame",
+            "customProperties": {
+                "sourceLocation": 7693,
+                "sourceID": "story.abc"
+            }
+        },
+        {
+            "contents": [
+                {
+                    "narration": "Thank you for playing Zombie Apocalypse. Goodbye!",
+                    "sceneDirections": [
+                        {
+                            "directionType": "ending",
+                            "parameters": {}
+                        }
+                    ]
+                }
+            ],
+            "id": "goodbye",
+            "customProperties": {
+                "sourceLocation": 7867,
+                "sourceID": "story.abc"
+            }
+        }
+    ],
+    "storyID": "zombie-fever",
+    "storyTitle": "Zombie Fever",
+    "alexaVoiceModel": {
+        "languageModel": {
+            "intents": [
+                {
+                    "name": "flexaIntent",
+                    "samples": [
+                        "later",
+                        "not now"
+                    ]
+                },
+                {
+                    "name": "flexbIntent",
+                    "samples": [
+                        "left"
+                    ]
+                },
+                {
+                    "name": "flexcIntent",
+                    "samples": [
+                        "gun"
+                    ]
+                },
+                {
+                    "name": "flexdIntent",
+                    "samples": [
+                        "knife"
+                    ]
+                },
+                {
+                    "name": "flexeIntent",
+                    "samples": [
+                        "highway"
+                    ]
+                },
+                {
+                    "name": "flexfIntent",
+                    "samples": [
+                        "car"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent"
+                },
+                {
+                    "name": "AMAZON.HelpIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent"
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent"
+                },
+                {
+                    "name": "AMAZON.NextIntent"
+                },
+                {
+                    "name": "AMAZON.NoIntent"
+                },
+                {
+                    "name": "AMAZON.PauseIntent"
+                },
+                {
+                    "name": "AMAZON.PreviousIntent"
+                },
+                {
+                    "name": "AMAZON.RepeatIntent"
+                },
+                {
+                    "name": "AMAZON.ResumeIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent"
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent"
+                },
+                {
+                    "name": "AMAZON.StartOverIntent"
+                },
+                {
+                    "name": "AMAZON.StopIntent"
+                },
+                {
+                    "name": "AMAZON.YesIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent"
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent"
+                },
+                {
+                    "name": "AMAZON.PageUpIntent"
+                },
+                {
+                    "name": "AMAZON.PageDownIntent"
+                },
+                {
+                    "name": "AMAZON.MoreIntent"
+                },
+                {
+                    "name": "AMAZON.FallbackIntent"
+                }
+            ],
+            "invocationName": "zombie fever"
+        }
+    }
+}
