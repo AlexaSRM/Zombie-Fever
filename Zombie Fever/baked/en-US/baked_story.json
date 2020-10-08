@@ -4,7 +4,7 @@
         {
             "contents": [
                 {
-                    "narration": "Welcome. Do you want to play Zombie Apocalypse?",
+                    "narration": "Welcome. Do you want to play Zombie Fever?",
                     "sceneDirections": [
                         {
                             "directionType": "choice",
@@ -65,7 +65,7 @@
         {
             "contents": [
                 {
-                    "narration": "The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. You also have a flashbang. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?",
+                    "narration": "The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?",
                     "sceneDirections": [
                         {
                             "directionType": "reprompt",
@@ -77,6 +77,13 @@
                             "directionType": "recap",
                             "parameters": {
                                 "message": "Say left or right."
+                            }
+                        },
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/intro.jpg"
                             }
                         },
                         {
@@ -154,7 +161,7 @@
             ],
             "id": "intro",
             "customProperties": {
-                "sourceLocation": 187,
+                "sourceLocation": 182,
                 "sourceID": "story.abc"
             }
         },
@@ -163,6 +170,13 @@
                 {
                     "narration": "The alley is dark. No sound came from anywhere. You intentionally keep it quiet. After taking a few steps you see a zombie alone wandering. You don't want to grab its attention so you keep walking slowly but a twig snaps below your feet. The zombie turns towards you. You cannot run away from it. You have to fight it now.",
                     "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/alley.jpg"
+                            }
+                        },
                         {
                             "directionType": "set",
                             "parameters": {
@@ -203,7 +217,7 @@
             ],
             "id": "left",
             "customProperties": {
-                "sourceLocation": 1873,
+                "sourceLocation": 1996,
                 "sourceID": "story.abc"
             }
         },
@@ -212,6 +226,13 @@
                 {
                     "narration": "You start walking down the road that you came. On walking you come across a clearing where you see 3 zombies feeding of human bodies. You try to go past them silently but a twig breaks under you. They hear it and see you standing there. You hear another sound behind you. You cannot run back. You have to fight them!",
                     "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/zombie-road.jpg"
+                            }
+                        },
                         {
                             "directionType": "set",
                             "parameters": {
@@ -252,7 +273,7 @@
             ],
             "id": "right",
             "customProperties": {
-                "sourceLocation": 2376,
+                "sourceLocation": 2642,
                 "sourceID": "story.abc"
             }
         },
@@ -348,7 +369,7 @@
             ],
             "id": "attack",
             "customProperties": {
-                "sourceLocation": 2895,
+                "sourceLocation": 3296,
                 "sourceID": "story.abc"
             }
         },
@@ -366,7 +387,7 @@
             ],
             "id": "flashTrue",
             "customProperties": {
-                "sourceLocation": 3322,
+                "sourceLocation": 3723,
                 "sourceID": "story.abc"
             }
         },
@@ -431,7 +452,7 @@
             ],
             "id": "fight",
             "customProperties": {
-                "sourceLocation": 3486,
+                "sourceLocation": 3887,
                 "sourceID": "story.abc"
             }
         },
@@ -475,7 +496,7 @@
             ],
             "id": "fightResult",
             "customProperties": {
-                "sourceLocation": 3850,
+                "sourceLocation": 4251,
                 "sourceID": "story.abc"
             }
         },
@@ -493,7 +514,7 @@
             ],
             "id": "flashBang",
             "customProperties": {
-                "sourceLocation": 4014,
+                "sourceLocation": 4415,
                 "sourceID": "story.abc"
             }
         },
@@ -552,7 +573,7 @@
             ],
             "id": "giveUpdate",
             "customProperties": {
-                "sourceLocation": 4177,
+                "sourceLocation": 4578,
                 "sourceID": "story.abc"
             }
         },
@@ -573,7 +594,7 @@
             ],
             "id": "loseFight",
             "customProperties": {
-                "sourceLocation": 4522,
+                "sourceLocation": 4923,
                 "sourceID": "story.abc"
             }
         },
@@ -594,7 +615,7 @@
             ],
             "id": "winFight",
             "customProperties": {
-                "sourceLocation": 4638,
+                "sourceLocation": 5039,
                 "sourceID": "story.abc"
             }
         },
@@ -666,7 +687,7 @@
             ],
             "id": "continue",
             "customProperties": {
-                "sourceLocation": 4767,
+                "sourceLocation": 5168,
                 "sourceID": "story.abc"
             }
         },
@@ -675,6 +696,13 @@
                 {
                     "narration": "You start to run down the highway but the zombies still see you and start chasing you. Looking back you see that they have almost closed in on you. As you were seeing behind you, you do not see a small rock in front of you and you trip over it. The zombies have surrounded you meanwhile. You have no other choice but to fight them or die.",
                     "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/zombie-highway.jpg"
+                            }
+                        },
                         {
                             "directionType": "set",
                             "parameters": {
@@ -708,7 +736,7 @@
             ],
             "id": "highway",
             "customProperties": {
-                "sourceLocation": 5410,
+                "sourceLocation": 5811,
                 "sourceID": "story.abc"
             }
         },
@@ -717,6 +745,13 @@
                 {
                     "narration": "If you want the car you have to fight the zombies.",
                     "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/car.jpg"
+                            }
+                        },
                         {
                             "directionType": "set",
                             "parameters": {
@@ -750,7 +785,7 @@
             ],
             "id": "car",
             "customProperties": {
-                "sourceLocation": 5912,
+                "sourceLocation": 6457,
                 "sourceID": "story.abc"
             }
         },
@@ -846,7 +881,7 @@
             ],
             "id": "HighwayAttack",
             "customProperties": {
-                "sourceLocation": 6124,
+                "sourceLocation": 6814,
                 "sourceID": "story.abc"
             }
         },
@@ -911,7 +946,7 @@
             ],
             "id": "fightHighway",
             "customProperties": {
-                "sourceLocation": 6567,
+                "sourceLocation": 7257,
                 "sourceID": "story.abc"
             }
         },
@@ -970,7 +1005,7 @@
             ],
             "id": "giveUpdateHighway",
             "customProperties": {
-                "sourceLocation": 6933,
+                "sourceLocation": 7623,
                 "sourceID": "story.abc"
             }
         },
@@ -979,6 +1014,13 @@
                 {
                     "narration": "Congratulations! You won the fight. \n        You then start walking towards the safe area when suddenly huge lights beam at you. On seeing you, multiple soldiers come running to save you.",
                     "sceneDirections": [
+                        {
+                            "directionType": "visuals",
+                            "parameters": {
+                                "template": "default",
+                                "background": "https://s3.amazonaws.com/com.alexa.zombie-fever/safe-area.jpg"
+                            }
+                        },
                         {
                             "directionType": "go to",
                             "parameters": {
@@ -991,7 +1033,7 @@
             ],
             "id": "winHighwayFight",
             "customProperties": {
-                "sourceLocation": 7301,
+                "sourceLocation": 7991,
                 "sourceID": "story.abc"
             }
         },
@@ -1012,7 +1054,7 @@
             ],
             "id": "success",
             "customProperties": {
-                "sourceLocation": 7556,
+                "sourceLocation": 8393,
                 "sourceID": "story.abc"
             }
         },
@@ -1068,14 +1110,14 @@
             ],
             "id": "endGame",
             "customProperties": {
-                "sourceLocation": 7693,
+                "sourceLocation": 8530,
                 "sourceID": "story.abc"
             }
         },
         {
             "contents": [
                 {
-                    "narration": "Thank you for playing Zombie Apocalypse. Goodbye!",
+                    "narration": "Thank you for playing Zombie Fever. Goodbye!",
                     "sceneDirections": [
                         {
                             "directionType": "ending",
@@ -1086,7 +1128,7 @@
             ],
             "id": "goodbye",
             "customProperties": {
-                "sourceLocation": 7867,
+                "sourceLocation": 8704,
                 "sourceID": "story.abc"
             }
         }

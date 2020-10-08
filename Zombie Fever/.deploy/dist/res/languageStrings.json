@@ -1,14 +1,14 @@
 {
     "en-US": {
         "translation": {
-            "start.narration": "Welcome. Do you want to play Zombie Apocalypse?",
+            "start.narration": "Welcome. Do you want to play Zombie Fever?",
             "utterance-yes": "yes",
             "utterance-yeah": "yeah",
             "utterance-sure": "sure",
             "utterance-no": "no",
             "utterance-later": "later",
             "utterance-not now": "not now",
-            "intro.narration": "The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. You also have a flashbang. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?",
+            "intro.narration": "The year is 2100. Global Warming has left most of the world inhospitable and humans are in the search of new places to live in. Space programs of all countries are in a race to find new hospitable planets and build extraterestrial homes. On one such mission, the rocket crew was infected with a strange virus. They were very critical and the doctors tried all they could but to no avail. Finally they flatlined and they were declared dead. However, after about fifteen minutes they rose again but they looked as if they were dead, no life in their eyes, as if they were 'ZOMBIES'! This was six months ago, those zombies had killed all of the doctors in the hospital that day and infected many others. Since then many went underground into hiding but not many survived. You are some of those lucky survivors, and was being taken to a safe zone. However on your way, the convoy was attacked by a horde of zombies. You luckily escaped and ran at full speed in the opposite direction not knowing where you were going. Finally you end up in a dark corner.You only have a bag with you which has a gun and a knife. On your left is a dark alley and on your right is the road you came from where zombies where chasing you. Which road do you choose?",
             "intro.reprompt": "Do you want to go left or right?",
             "intro.recap": "Say left or right.",
             "utterance-left": "left",
@@ -41,7 +41,7 @@
             "winHighwayFight.narration": "Congratulations! You won the fight. \n        You then start walking towards the safe area when suddenly huge lights beam at you. On seeing you, multiple soldiers come running to save you.",
             "success.narration": "Congratulations! You were able to survive and safely reached the safe zone.",
             "endGame.narration": "Do you want to play again?",
-            "goodbye.narration": "Thank you for playing Zombie Apocalypse. Goodbye!"
+            "goodbye.narration": "Thank you for playing Zombie Fever. Goodbye!"
         }
     }
 }
